@@ -1,0 +1,51 @@
+﻿@{
+    var products = (IEnumerable<ABCTester.Models.ProductModel>)Model;
+}
+
+<h2>Your Cart</h2>
+
+@if (products != null && products.Any())
+{
+    <form asp-action="UpdateCart" method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in products)
+                {
+                    <tr>
+                        <td>@item.ProductName</td>
+                        <td>
+                            <input type="number" name="quantities[@(item.ProductId)]" value="@item.Quantity" min="1" class="form-control" />
+                        </td>
+                        <td>R @item.Price</td>
+                        <td>R @(item.Quantity * item.Price)</td>
+                        <td>
+                            <a asp-action="RemoveFromCart" asp-route-productId="@item.ProductId" class="btn btn-danger">Remove</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="text-right">
+            <h4>Total: R @products.Sum(x => x.Quantity * x.Price)</h4>
+            <button type="submit" class="btn btn-success">Update Cart</button>
+        </div>
+    </form>
+
+    <form asp-action="ProcessOrder" method="post">
+        <button type="submit" class="btn btn-primary">Pay and Process Order</button>
+    </form>
+}
+else
+{
+    <p>Your cart is empty.</p>
+}

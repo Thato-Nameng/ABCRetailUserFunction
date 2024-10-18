@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ABCTester.Models.OrderModel>
+
+<h2>
+    @if (Model != null && Model.Any())
+    {
+        <text>Orders for @Model.First().CustomerName</text>
+    }
+    else
+    {
+        <text>No Orders Available</text>
+    }
+</h2>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Total Amount (R)</th>
+                <th>Products</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td> @order.TotalAmount</td>
+                    <td>
+                        <ul>
+                            @foreach (var product in order.Products)
+                            {
+                                <li>@product.ProductName </li>
+                            }
+                        </ul>
+                    </td>
+                    <td>@order.OrderStatus</td>
+                    <td>
+                        @if (order.OrderStatus == "Processing")
+                        {
+                            <form asp-action="UpdateOrderStatus" method="post">
+                                <input type="hidden" name="orderId" value="@order.OrderId" />
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No orders available for this customer.</p>
+}

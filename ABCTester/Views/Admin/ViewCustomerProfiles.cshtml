@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ABCTester.Models.CustomerProfileModel>
+
+@{
+    ViewData["Title"] = "View Customer Profiles";
+}
+
+<h1 class="text-primary">Customer Profiles</h1>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Phone Number</th>
+                <th>Created Date</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var profile in Model)
+            {
+                <tr>
+                    <td>@profile.Email</td>
+                    <td>@profile.Name</td>
+                    <td>@profile.Surname</td>
+                    <td>@profile.PhoneNumber</td>
+                    <td>@profile.CreatedDate.ToString("yyyy-MM-dd")</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(profile.ImageUrl))
+                        {
+                            <img src="@profile.ImageUrl" alt="Customer Image" style="width: 100px; height: 100px;" />
+                        }
+                        else
+                        {
+                            <span>No Image</span>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="ViewOrders" asp-route-customerId="@profile.Email" class="btn btn-info">View Orders</a>
+                        <a asp-action="ViewCustomerFiles" asp-route-customerId="@profile.Email" class="btn btn-info">View Files</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+}
+else
+{
+    <p>No customer profiles available.</p>
+}

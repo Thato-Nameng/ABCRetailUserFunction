@@ -1,0 +1,29 @@
+﻿@model ABCTester.Models.CustomerFileLogViewModel
+
+<h2>Customer Data for @Model.CustomerName</h2>
+
+<div>
+    <h3>Customer Files</h3>
+    <p>This section displays the customers  files.</p>
+    @if (!string.IsNullOrEmpty(Model.CustomerFilesContent))
+    {
+        <pre>@Html.Raw(Model.CustomerFilesContent)</pre>
+    }
+    else
+    {
+        <p>No customer files available.</p>
+    }
+</div>
+
+<div>
+    <h3>Customer Logs</h3>
+    <p>This section shows logs of customer activities</p>
+    @if (!string.IsNullOrEmpty(Model.CustomerLogsContent))
+    {
+        <pre>@Html.Raw(Model.CustomerLogsContent)</pre>
+    }
+    else
+    {
+        <p>No customer logs available.</p>
+    }
+</div>

@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Login Successful";
+}
+
+<h1 class="text-center text-success">You have successfully logged in!</h1>
+
+<p class="text-center">Welcome, @Context.Session.GetString("UserName")</p>
+<p class="text-center">Login Time: @Context.Session.GetString("LoginTime")</p>
+
+<p class="text-center"><a class="btn btn-primary" href="/Home/Index">Go to Home</a></p>

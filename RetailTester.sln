@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ABCTester", "ABCTester\ABCTester.csproj", "{00A5BD70-84DA-4B35-8051-1A9EF02AD60C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionApp", "FunctionApp\FunctionApp.csproj", "{B8E15A56-B7C9-41BB-99F5-FE3200A2A5A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{00A5BD70-84DA-4B35-8051-1A9EF02AD60C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00A5BD70-84DA-4B35-8051-1A9EF02AD60C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00A5BD70-84DA-4B35-8051-1A9EF02AD60C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00A5BD70-84DA-4B35-8051-1A9EF02AD60C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8E15A56-B7C9-41BB-99F5-FE3200A2A5A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8E15A56-B7C9-41BB-99F5-FE3200A2A5A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8E15A56-B7C9-41BB-99F5-FE3200A2A5A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8E15A56-B7C9-41BB-99F5-FE3200A2A5A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A7BB018D-0748-4789-8BA2-8D03D58CC5D4}
+	EndGlobalSection
+EndGlobal
